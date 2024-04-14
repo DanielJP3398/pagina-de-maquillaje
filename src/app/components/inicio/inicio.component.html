@@ -1,0 +1,50 @@
+<div class="main">
+  <div class="carrusel">
+    <ul class="carrusel-fotos">
+      <li *ngFor="let imagen of carrusel" [id]="imagen.id"><img [src]="imagen.src" alt=""></li>
+    </ul>
+    <ul class="carrusel-menu">
+      <li *ngFor="let imagen of carrusel"><a [href]="'#' + imagen.id"><img [src]="imagen.src" alt=""></a></li>
+    </ul>
+  </div>
+</div>
+<br>
+<p><b>Rosa Bonita es una empresa de venta de cosméticos para mujeres que ofrece productos
+    de alta calidad y asequibles. Nuestra línea de productos incluye maquillaje,
+    cuidado de la piel y fragancias diseñadas para realzar la belleza natural de la mujer.
+    Utilizamos ingredientes naturales y no tóxicos en nuestros productos y nos enfocamos en
+    crear una experiencia de belleza personalizada para cada cliente.💓 ®
+  </b>
+</p>
+<div class="main">
+  <ng-container *ngIf="dat.uss">
+    <br>
+    <div>
+      <h1>Bienvenido {{dat.uss}} </h1>
+      <form (ngSubmit)="clear()">
+        <button type="submit">Cerrar Sesion</button>
+      </form>
+    </div>
+    <div>
+      <br>
+      <p>Listado de Pedidos</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID Pedido</th>
+            <th>Id Usuario</th>
+            <th>Id Producto</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{pedido.idPed}}</td>
+            <td>{{pedido.fkidUs}}</td>
+            <td>{{pedido.fkidProd}}</td>
+            <td>{{pedido.cantidad}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>

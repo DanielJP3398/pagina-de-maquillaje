@@ -1,0 +1,39 @@
+<div class="form-register">
+  <h4><b>Registro de Usuario</b></h4>
+  <form (ngSubmit)="crearu()" [formGroup]="login">
+    <p>Nombre Usuario</p>
+    <input [class.is-invalid]="login.get('user')?.touched && login.get('user')?.invalid" type="text" class="controls"
+      formControlName="user" required="ingrese nombre de uduario" />
+    <div *ngIf="login.get('user')?.invalid && (login.get('user')?.dirty || login.get('user')?.touched)"
+      class="invalid-feedback">
+      <div *ngIf="login.get('user')?.errors?.['required']"><b>El campo Nombre es requerido</b></div>
+    </div>
+    <p>Contraseña</p>
+    <input [class.is-invalid]="login.get('pass')?.touched && login.get('pass')?.invalid" type="password"
+      class="controls" formControlName="pass" required="ingrese ciontraseña" />
+    <div *ngIf="login.get('pass')?.invalid && (login.get('pass')?.dirty || login.get('pass')?.touched)"
+      class="invalid-feedback">
+      <div *ngIf="login.get('pass')?.errors?.['required']"><b>El campo es Contraseña requerido</b></div>
+    </div>
+    <p>e-Mail</p>
+    <input [class.is-invalid]="login.get('email')?.touched && login.get('email')?.invalid" type="text" class="controls"
+      formControlName="email" required="ingrese enmail" />
+    <div *ngIf="login.get('email')?.invalid && (login.get('email')?.dirty || login.get('email')?.touched)"
+      class="invalid-feedback">
+      <div *ngIf="login.get('email')?.errors?.['required']"><b>El campo e-Mail es requerido</b></div>
+      <div *ngIf="login.get('email')?.errors?.['email']"><b>El correo no es válido</b></div>
+    </div>
+    <p>Telefono</p>
+    <input [class.is-invalid]="login.get('telf')?.touched && login.get('telf')?.invalid" type="text" class="controls"
+      formControlName="telf" pattern="^[0-9]*$" required />
+    <div *ngIf="login.get('telf')?.invalid && (login.get('telf')?.dirty || login.get('telf')?.touched)"
+      class="invalid-feedback">
+      <div *ngIf="login.get('telf')?.errors?.['required']">El campo Telefono es requerido</div>
+      <div *ngIf="login.get('telf')?.errors?.['pattern']">El campo Telefono solo acepta números</div>
+    </div>
+  </form>
+  <button class="botons" type="submit" value="Registrar"
+    onclick="alert(' Se registro con exito')"><b>Registrarse</b></button>
+  <p><a [routerLink]="['/','form']"><b><span>¿Ya tienes Cuenta?</span></b></a></p>
+  <a href="#">Terminos y Condiciones</a>
+</div>

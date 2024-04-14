@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
+  box-shadow: -8px 0px 8px 5px #dac3c3;
+}
+
+img {
+  width: 34vw;
+  margin-left: -4px;
+}
+
+article {
+  width: 50%;
+  height: 30%;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
+#wpp {
+  margin-top: 45%;
+  margin-left: auto;
+  margin-right: 1%;
+  position: relative;
+}
+
+#wpp>img {
+  width: 65px;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  img {
+    margin: 3% auto 0;
+    width: 90%;
+  }
+
+  article {
+    width: 90%;
+  }
+
+  #wpp {
+    margin-left: auto;
+    margin-right: 1%;
+    margin-top: 1%;
+    float: right;
+  }
+}

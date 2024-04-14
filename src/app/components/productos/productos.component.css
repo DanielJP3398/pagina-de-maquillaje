@@ -1,0 +1,64 @@
+
+.main{
+  width: 80%;
+  margin-top: 2%;
+  margin: 0 auto;
+}
+
+.card{
+  display: flex;
+  width: 23%;
+  margin: 1%;
+  padding-top: 2%;
+  box-shadow: 7px 13px 37px #d2a0a0;
+}
+img{
+  width: 80%;
+  align-self: center;
+}
+
+h5{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+a{
+  width: 100%;
+}
+/* Estilos para pantallas de hasta 768px de ancho */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90%; /* Ancho del 90% para que quepa en una sola columna */
+    margin: 5% auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribución de las tarjetas equidistantes */
+  }
+
+}
+
+img {
+  width: 80%;
+  align-self: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  width: 100%;
+}
+

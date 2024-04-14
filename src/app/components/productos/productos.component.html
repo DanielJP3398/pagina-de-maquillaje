@@ -1,0 +1,60 @@
+<br>
+<ng-container *ngIf="!datt.fkidUs">
+  <p>!Recuerda registrarte en nuestra <a [routerLink]="['/','registro']"><b>base de datos</b></a> para poder acceder a
+    comprar nuestros productos!</p>
+  <br>
+  <p><a [routerLink]="['/','form']"><b>¿Ya tienes Cuenta? Ingresa!</b></a></p>
+</ng-container>
+<br>
+<ng-container *ngIf="nombre == 'root'">
+
+  <h2>Ingresaste como Usuario root</h2>
+
+
+  <div class="main">
+    <div class="card">
+      <img class="card-img-top" src="../../../assets/come1.jpg">
+      <div class="card-body">
+        <h5>Plantilla CRUD Productos</h5>
+        <p *ngIf="!dett.idProd">Para agregar el ID debes seleccionar un item del listado de abajo</p>
+        <p *ngIf="dett.idProd">Id de Producto: {{ dett.idProd }}</p>
+        <p class="card-text">Foto Producto</p>
+        <input type="text" [(ngModel)]="dett.fotoProd" placeholder="fotoProd" name="fotoProd" />
+        <p class="card-text">Nombre Producto</p>
+        <input type="text" [(ngModel)]="dett.nombreProd" placeholder="nombreProd" name="nombreProd" />
+        <p class="card-text">Descripcion</p>
+        <input type="text" [(ngModel)]="dett.descripcionProd" placeholder="descripcion" name="descripcion" />
+        <p class="card-text">Precio</p>
+        <input type="text" [(ngModel)]="dett.precioProd" placeholder="precio" name="precio" />
+      </div>
+      <button (click)="produpt()" class="btn btn-success">Actualizar</button>
+      <button (click)="crearprod()" class="btn btn-info">Crear Nuevo</button>
+      <button (click)="delprod()" class="btn btn-danger">Eliminar</button>
+    </div>
+  </div>
+
+
+</ng-container>
+<div class="main">
+  <div class="card" *ngFor="let item of productos">
+    <img class="card-img-top" [src]="item.fotoProd">
+    <div class="card-body">
+      <h5 class="card-title">{{item.nombreProd}}</h5>
+      <p class="card-text">{{item.descripcionProd}}</p>
+      <p class="card-text">{{item.precioProd}}</p>
+      <ng-container *ngIf="datt.fkidUs">
+        <button (click)="seleccionarProducto(item.idProd)" class="btn btn-primary">Seleccionar</button>
+        <div *ngIf="idProdSeleccionado === item.idProd">
+          <p>Primero debes agregar la cantidad</p>
+          <input type="text" [(ngModel)]="canti" placeholder="Cantidad" name="cant" pattern="^[0-9]*$" />
+          <div *ngIf="datt.fkidProd !== null">
+            <p>Has seleccionado el producto con ID {{ datt.fkidProd }} </p>
+            <form *ngIf="canti >0" (ngSubmit)="comprar()">
+              <a [routerLink]="['/','form']" class="btn btn-danger">Comprar</a>
+            </form>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

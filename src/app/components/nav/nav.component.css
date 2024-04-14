@@ -1,0 +1,76 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: rgb(210, 125, 119);
+  background: linear-gradient(90deg, rgba(210, 125, 119, 0.742734593837535) 0%, rgba(219, 90, 90, 1) 52%, rgba(228, 69, 69, 1) 100%);
+}
+
+.nav {
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  font-size: larger;
+  color: rgb(226, 232, 238);
+}
+
+a.active {
+  color: #ffffff;
+}
+
+a:hover {
+  color: white;
+}
+
+button {
+  background-image: linear-gradient(to right, #EB3349 0%, #ee4055 51%, #EB3349 100%);
+  padding: 3px 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.2s;
+  background-size: 200% auto;
+  color: rgb(226, 234, 241);
+  box-shadow: 0 0 11px #eee;
+  border-radius: 10px;
+  margin-right: 3%;
+}
+
+button:hover {
+  width: 7%;
+  color: white;
+}
+
+img {
+  width: 13%;
+  height: auto;
+  margin-top: 8.4%;
+  margin-left: 1px;
+  position: absolute;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    width: 30%;
+    margin-top: 0.5px;
+    margin-left: 0.5px;
+  }
+
+  button {
+    margin-right: 1%;
+    width: 23%;
+    height: auto;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  button:hover {
+    width: 23%;
+    color: white;
+  }
+}

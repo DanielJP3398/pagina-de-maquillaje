@@ -1,0 +1,38 @@
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form>
+      <h1>Bienvenido</h1>
+      <br>
+      <img src="./assets/acceso.png" alt="" />
+      <br>
+      <p><a [routerLink]="['/','registro']"><b style="color: red;">¿No tienes Cuenta?</b></a></p>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Login</h1>
+        <br>
+        <div>
+          <form [formGroup]="login" (ngSubmit)="logn()" class="frm">
+            <input [class.is-invalid]="login.get('user')?.touched && login.get('user')?.invalid" type="text"
+              class="controls" formControlName="user" placeholder="Ingrese el Usuario" required="ingrese usuario" />
+            <div *ngIf="login.get('user')?.invalid && (login.get('user')?.dirty || login.get('user')?.touched)"
+              class="invalid-feedback">
+              <div *ngIf="login.get('user')?.errors?.['required']"><b>El Usuario es obligatorio</b></div>
+            </div>
+            <br>
+            <input [class.is-invalid]="login.get('pass')?.touched && login.get('pass')?.invalid" type="password"
+              class="controls" formControlName="pass" placeholder="Ingrese la Contraseña" required="ingrese clave" />
+            <div *ngIf="login.get('pass')?.invalid && (login.get('pass')?.dirty || login.get('pass')?.touched)"
+              class="invalid-feedback">
+              <div *ngIf="login.get('pass')?.errors?.['required']"><b>La Contraseña es obligatoria</b></div>
+            </div>
+            <br>
+            <button type="submit" class="ghost" id="signUp">Ingresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
